@@ -403,11 +403,7 @@ class SagepayManager
             }
         }
 
-        $service = strtolower($request->getTxType());
-
-        if (in_array($service, array('payment', 'authenticate', 'deferred'))) {
-            $service = 'simulator' === $this->mode ? 'Register' : 'vspserver-register';
-        }
+        $service = $request->getService();
 
         if ('repeatdeferred' === $service) {
             $service = 'repeat';

@@ -25,6 +25,11 @@ abstract class RegistrationRequest
      */
     protected $txType;
 
+    /**
+     * @Assert\NotBlank()
+     */
+    protected $service;
+
     // Alphanumeric. Max 15 characters.
     /**
      * @Assert\MaxLength(15)
@@ -67,6 +72,18 @@ abstract class RegistrationRequest
     public function setTxType($value)
     {
         $this->txType = $value;
+
+        return $this;
+    }
+
+    public function getService()
+    {
+        return $this->service;
+    }
+
+    public function setService($value)
+    {
+        $this->service = $value;
 
         return $this;
     }
