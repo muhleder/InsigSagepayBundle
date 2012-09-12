@@ -54,12 +54,12 @@ abstract class RegistrationRequest
 
     public function getVpsProtocol()
     {
-        return $this->vpsProtocol;
+        return $this->VpsProtocol;
     }
 
     public function setVpsProtocol($value)
     {
-        $this->vpsProtocol = number_format($value, 2);
+        $this->VpsProtocol = number_format($value, 2);
 
         return $this;
     }

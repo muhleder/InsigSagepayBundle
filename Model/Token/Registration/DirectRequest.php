@@ -26,9 +26,9 @@ class DirectRequest extends BaseRegistrationRequest
     // “PAYMENT”, “DEFERRED” or “AUTHENTICATE”.
     /**
      * @Assert\NotBlank()
-     * @Assert\Choice({"PAYMENT","DEFERRED","AUTHENTICATE"})
+     * @Assert\Choice({"TOKEN"})
      */
-    protected $txType;
+    protected $txType = "TOKEN";
 
     // Not blank.
     /**
@@ -40,7 +40,7 @@ class DirectRequest extends BaseRegistrationRequest
     /**
      * @Assert\NotBlank()
      * @Assert\Choice(callback = {"Insig\SagepayBundle\Model\Util",
-     * "getCurrencyCodes"})
+     * "getcurrencyCodes"})
      */
     protected $currency;
 
@@ -176,11 +176,9 @@ class DirectRequest extends BaseRegistrationRequest
     {
         return array(
             'VPSProtocol',
-            'TxType',
+            'txType',
             'Vendor',
-            'VendorTxCode',
-            'Currency',
-            'NotificationURL',
+            'currency',
         );
     }
 
@@ -201,10 +199,14 @@ class DirectRequest extends BaseRegistrationRequest
             'VPSProtocol'           => $this->vpsProtocol,
             'TxType'                => $this->txType,
             'Vendor'                => $this->vendor,
-            'VendorTxCode'          => $this->vendorTxCode,
             'Currency'              => $this->currency,
-            'NotificationURL'       => $this->notificationUrl,
-            'Profile'               => $this->profile
+            'CardNumber'            => $this->cardNumber,
+            'CardHolder'            => $this->cardHolder,
+            'CV2'                   => $this->cv2,
+            'StartDate'             => $this->startDate,
+            'ExpiryDate'            => $this->expiryDate,
+            'IssueNumber'           => $this->issueNumber,
+            'CardType'              => $this->cardType,
         ));
     }
 }

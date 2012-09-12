@@ -26,6 +26,9 @@ use Insig\SagepayBundle\Model\Transaction\Notification\Response as TransactionNo
 use Insig\SagepayBundle\Model\Token\Registration\Request as TokenRegistrationRequest;
 use Insig\SagepayBundle\Model\Token\Registration\Response as TokenRegistrationResponse;
 
+use Insig\SagepayBundle\Model\Token\Registration\DirectRequest as TokenRegistrationDirectRequest;
+use Insig\SagepayBundle\Model\Token\Registration\DirectResponse as TokenRegistrationDirectResponse;
+
 use Insig\SagepayBundle\Model\Token\Notification\Request as TokenNotificationRequest;
 use Insig\SagepayBundle\Model\Token\Notification\Response as TokenNotificationResponse;
 
@@ -192,6 +195,23 @@ class SagepayManager
         $responseArray = $this->sendRequest($request);
 
         return new TokenRegistrationResponse($responseArray);
+    }
+
+    /**
+     * Register Token
+     *
+     * Sends an http post representation of a Token Registration Request to Sagepay
+     * Returns a TokenRegistrationResponse object populated from the server's response
+     *
+     * @param \Insig\SagepayBundle\Model\Token\Registration\DirectRequest $request
+     * @return \Insig\SagepayBundle\Model\Token\Registration\Response $response
+     * @author Damon Jones
+     */
+    public function registerDirectToken(TokenRegistrationDirectRequest $request)
+    {
+        $responseArray = $this->sendRequest($request);
+
+        return new TokenRegistrationDirectResponse($responseArray);
     }
 
     /**
