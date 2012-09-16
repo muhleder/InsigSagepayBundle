@@ -18,4 +18,6 @@ class PaymentRequest extends Request
      * @Assert\Choice({"PAYMENT"})
      */
     protected $txType = 'PAYMENT';
+
+    protected $service = 'vspdirect-register';
 }
