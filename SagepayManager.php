@@ -116,16 +116,10 @@ class SagepayManager
      * @return \Insig\SagepayBundle\Model\Transaction\Registration\Response $response
      * @author Damon Jones
      */
-    public function registerTransaction(TransactionRegistrationRequest $request, TransactionInterface &$transaction)
+    public function registerTransaction(TransactionRegistrationRequest $request)
     {
         $responseArray = $this->sendRequest($request);
         $response = new TransactionRegistrationResponse($responseArray);
-
-        $transaction->setVendorTxCode($request->getVendorTxCode());
-        $transaction->setVpsTxId($response->getVpsTxId());
-        $transaction->setSecurityKey($response->getSecurityKey());
-        $transaction->setAmount($request->getAmount());
-        $transaction->setTxType($request->getTxType());
 
         return $response;
     }
