@@ -60,7 +60,9 @@ class Response extends BaseRegistrationResponse
 
         if ('OK' === $this->status) {
             $this->securityKey = $arr['SecurityKey'];
-            $this->nextUrl     = $arr['NextURL'];
+            if (isset($arr['NextURL'])) {
+                $this->nextUrl     = $arr['NextURL'];
+            }
         }
     }
 
