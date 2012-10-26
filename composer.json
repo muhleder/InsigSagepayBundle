@@ -1,0 +1,23 @@
+{
+    "name": "damonjones/insig-sagepay-bundle",
+    "type": "symfony-bundle",
+    "description": "Symfony InsigSagepayBundle",
+    "keywords": ["Sagepay API"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Damon Jones",
+            "email": "damon@insig.net"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.2",
+        "symfony/validator": ">=2.1"
+    },
+    "autoload": {
+        "psr-0": {
+            "Insig\\SagepayBundle": ""
+        }
+    },
+    "target-dir": "Insig/SagepayBundle"
+}
