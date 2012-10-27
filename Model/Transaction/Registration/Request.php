@@ -110,7 +110,7 @@ abstract class Request extends BaseRegistrationRequest
      * @Assert\MaxLength(10)
      * @Assert\Regex("{^[a-zA-Z\d -]+$}")
      */
-    protected $billingPostCode = '-';
+    protected $billingPostCode;
 
     // Alphabetic. Max 2 characters. ISO 3166
     /**
