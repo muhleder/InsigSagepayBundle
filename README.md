@@ -2,6 +2,30 @@
 
 ## Example usage
 
+### Required config in config.yml
+
+    insig_sagepay:
+        vendor: %sagepay_vendor%
+        redirect_urls:
+            ok: 'localhost'
+            notauthed: 'localhost'
+            abort: 'localhost'
+            rejected: 'localhost'
+            authenticated: 'localhost'
+            registered: 'localhost'
+            error: 'localhost'
+            invalid: 'localhost'
+            fail: 'localhost'
+            malformed: 'localhost'
+            token_ok: 'localhost'
+            token_error: 'localhost'
+
+### Required parameters in parameters.ini
+
+    sagepay_vendor   = your_sagepay_vendor_name
+    sagepay_env      = sagepay_environment (test or live or simulator)
+
+
 ### Direct token integration
 
 #### Register a token
