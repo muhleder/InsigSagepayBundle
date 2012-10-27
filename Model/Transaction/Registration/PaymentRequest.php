@@ -20,4 +20,135 @@ class PaymentRequest extends Request
     protected $txType = 'PAYMENT';
 
     protected $service = 'vspdirect-register';
+
+    // Alphabetic. 3 characters. ISO 4217
+    /**
+     * @Assert\NotBlank()
+     * @Assert\Choice(callback = {"Insig\SagepayBundle\Model\Util",
+     * "getcurrencyCodes"})
+     */
+    protected $currency;
+
+    // Alphanumeric Max 50 characters
+    /**
+     * @Assert\NotBlank
+     * @Assert\MaxLength(50)
+     */
+    protected $cardHolder;
+
+    // Numeric Max 20 characters
+    /**
+     * @Assert\NotBlank()
+     * @Assert\Regex("/^\d{20}$/")
+     */
+    protected $cardNumber;
+
+    // Numeric 4 characters. Optional.
+    /**
+     * @Assert\Regex("/^\d{4}$/")
+     */
+    protected $startDate;
+
+    // Numeric 4 characters
+    /**
+     * @Assert\NotBlank()
+     * @Assert\Regex("/^\d{4}$/")
+     */
+    protected $expiryDate;
+
+    // Optional. Numeric. Max 2 characters
+    /**
+     * @Assert\Regex("/^\d{2}$/")
+     */
+    protected $issueNumber;
+
+    // Numeric. Max 4 characters
+    /**
+     * @Assert\NotBlank()
+     * @Assert\Regex("/^\d{4}$/")
+     */
+    protected $cv2;
+
+    // Alphanumeric Max 15 characters
+    /**
+     * @Assert\NotBlank()
+     * @Assert\Choice({"VISA", "MC", "DELTA", "SOLO", "MAESTRO", "UKE", "AMEX", "DC", "JCB", "LASER"})
+     */
+    protected $cardType;
+
+    public function getCurrency()
+    {
+        return $this->currency;
+    }
+
+    public function setCurrency($value)
+    {
+        $this->currency = $value;
+
+        return $this;
+    }
+
+    public function getCardHolder() {
+        return $this->cardHolder;
+    }
+
+    public function setCardHolder($value) {
+        $this->cardHolder = $value;
+        return $this;
+    }
+
+    public function getCardNumber() {
+        return $this->cardNumber;
+    }
+
+    public function setCardNumber($value) {
+        $this->cardNumber = $value;
+        return $this;
+    }
+
+    public function getStartDate() {
+        return $this->startDate;
+    }
+
+    public function setStartDate($value) {
+        $this->startDate = $value;
+        return $this;
+    }
+
+    public function getExpiryDate() {
+        return $this->expiryDate;
+    }
+
+    public function setExpiryDate($value) {
+        $this->expiryDate = $value;
+        return $this;
+    }
+
+    public function getIssueNumber() {
+        return $this->issueNumber;
+    }
+
+    public function setIssueNumber($value) {
+        $this->issueNumber = $value;
+        return $this;
+    }
+
+    public function getCv2() {
+        return $this->cv2;
+    }
+
+    public function setCv2($value) {
+        $this->cv2 = $value;
+        return $this;
+    }
+
+    public function getCardType() {
+        return $this->cardType;
+    }
+
+    public function setCardType($value) {
+        $this->cardType = $value;
+        return $this;
+    }
+
 }
